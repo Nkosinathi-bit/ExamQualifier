@@ -10,11 +10,18 @@ class Program
             ShowMenu();
 
             
+            string? menuInput = Console.ReadLine();
+            if (menuInput is null)
+            {
+                Console.WriteLine("\nInput closed. Goodbye.\n");
+                return;
+            }
+
             int choice;
 
             try
             {
-                choice = int.Parse(Console.ReadLine()!);
+                choice = int.Parse(menuInput);
             }
             catch
             {

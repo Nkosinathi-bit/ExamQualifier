@@ -1,0 +1,44 @@
+name: Build and check container
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Build container
+        run: docker build -t exam-qualifier-ci .
+
+      - name: Check console behaviour
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          
+          cases = [
+              ("qualification boundary", "1\nBoundary Pass\n50\n50\n50\n50\n3\n", ["50.00", "Result:            QUALIFIES"]),
+              ("below qualification boundary", "1\nBoundary Fail\n49\n49\n49\n49\n3\n", ["49.00", "DOES NOT QUALIFY"]),
+              ("weighted calculation and results list", "1\nAlice\n60\n70\n80\n90\n2\n3\n", ["70.00", "ALL STUDENTS", "Alice"]),
+              ("invalid mark range", "1\nAlice\n101\n3\n", ["Marks must be between 0 and 100."]),
+              ("non-numeric mark", "1\nAlice\ninvalid\n3\n", ["Invalid entry. Please enter a numerical value."]),
+              ("closed input", "", ["Input closed. Goodbye."]),
+          ]
+          
+          for name, entries, expected in cases:
+              result = subprocess.run(
+                  ["docker", "run", "--rm", "-i", "exam-qualifier-ci"],
+                  input=entries, text=True, capture_output=True, timeout=15
+              )
+              assert result.returncode == 0, (name, result.stdout, result.stderr)
+              for text in expected:
+                  assert text in result.stdout, (name, text, result.stdout)
+              print(f"PASS: {name}")
+          PY
