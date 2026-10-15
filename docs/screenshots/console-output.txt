@@ -1,0 +1,57 @@
+
+========================================
+     EXAM QUALIFICATION CALCULATOR
+========================================
+
+ 1. Enter a new student
+ 2. View all students
+ 3. Exit
+
+----------------------------------------
+
+ Choose an option: 
+----------------------------------------
+           NEW STUDENT ENTRY
+----------------------------------------
+
+ Student's name:  Test 1 score (30%):  Test 2 score (50%):  Assignment 1 score (10%):  Project score (10%): 
+----------------------------------------
+
+ Name:              Demo Student
+ Weighted Average:  78.00
+ Result:            QUALIFIES
+
+----------------------------------------
+
+
+========================================
+     EXAM QUALIFICATION CALCULATOR
+========================================
+
+ 1. Enter a new student
+ 2. View all students
+ 3. Exit
+
+----------------------------------------
+
+ Choose an option: 
+---------------------------------------------------------
+             ALL STUDENTS
+---------------------------------------------------------
+ Demo Student          78.00%   QUALIFIES
+---------------------------------------------------------
+
+========================================
+     EXAM QUALIFICATION CALCULATOR
+========================================
+
+ 1. Enter a new student
+ 2. View all students
+ 3. Exit
+
+----------------------------------------
+
+ Choose an option: 
+All entries have been captured.
+Thank you & goodbye.
+

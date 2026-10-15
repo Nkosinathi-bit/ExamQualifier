@@ -8,6 +8,14 @@ A C# console application that calculates a student's weighted assessment average
 
 Built for Cloud Native Programming coursework at Belgium Campus.
 
+## Output preview
+
+The image below presents output recorded from a real automated application run. It is a console-output excerpt; the program uses a terminal interface.
+
+![Recorded application output](docs/screenshots/console-output.png)
+
+[Full unedited output](docs/screenshots/console-output.txt) · [Capture source and sample input](docs/screenshots/capture.json)
+
 ## Features
 
 - Capture a student's name and four assessment marks.
@@ -65,3 +73,4 @@ The interactive flags allow the application to read keyboard input.
 This is a console coursework project. Results are stored in memory for the current session; there is no database or file persistence.
 
 **Author:** Nkosinathi Mathenjwa
+
