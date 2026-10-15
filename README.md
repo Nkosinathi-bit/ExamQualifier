@@ -1,5 +1,9 @@
 # Student Exam Qualification Calculator
 
+[![Checks](https://github.com/Nkosinathi-bit/ExamQualifier/actions/workflows/ci.yml/badge.svg)](https://github.com/Nkosinathi-bit/ExamQualifier/actions/workflows/ci.yml)
+
+**Coursework · Cloud Native Programming · C# / .NET 10**
+
 A C# console application that calculates a student's weighted assessment average and determines whether they qualify to write an examination.
 
 Built for Cloud Native Programming coursework at Belgium Campus.
